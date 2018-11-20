@@ -4,35 +4,36 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Assignment #3: Convolutional Networks</title>
+        <title>Assignment #4: Recurrent Neural Networks</title>
     </head>
     <body>
-        <!--<h1>Assignment #3: Convolutional Networks</h1>-->
+        <!--<h1>Assignment #4: Recurrent Neural Networks</h1>-->
         <h2>Provisional</h2>
         <p>The content of this page is provisional and will possibly change by the day of the lab.</p>
         <h2>Objectives</h2>
         <p>The objectives of this assignment are to:</p>
         <ul>
-            <li>Write a program to recognize flowers on images</li>
-            <li>Learn how to manage an image data set</li>
-            <li>Apply convolutional networks to images</li>
-            <li>Know what Python generators are</li>
+            <li>Write a program to recognize named entities in text</li>
+            <li>Learn how to manage an text data set</li>
+            <li>Apply recurrent neural networks to text</li>
+            <li>Know what embeddings are</li>
         </ul>
         <h2>Organization and location</h2>
-        <p>The second lab session will take place on</p>
+        <p>The third lab session will take place on</p>
         <ul>
-            <li>Group 1: Thursday, November 22 from 15:15 to 17:00 in the Alpha room</li>
-            <li>Group 2: Friday, November 23 from 13:15 to 15:00 in the Beta room</li>
-            <li>Group 3: Friday, November 23 from 13:15 to 15:00 in the Alpha room</li>
+            <li>Group 1: Thursday, November 29 from 13:15 to 15:00 in the Alpha room</li>
+            <li>Group 2: Thursday, November 29 from 13:15 to 15:00 in the Beta room</li>
+            <li>Group 3: Friday, November 30 from 13:15 to 15:00 in the Alpha room</li>
         </ul>
         <p>Always check the calender for last minute changes: <a href="https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#">https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#</a></p>
         <p>You can work alone or collaborate with another student:</p>
         <ul>
-            <li>Each group will have to write Python programs to recognize the sort of flower in an image.
+            <li>Each group will have to write Python programs to recognize named entities in text.
             </li>
-            <li>You will have to experiment different architectures and compare the results you obtained</li>
+            <li>You will have to experiment different architectures, namely RNN and LSTM,
+                and compare the results you obtained</li>
         </ul>
-        <h2>Programming</h2>
+       <!-- <h2>Programming</h2>
         <h3>Collecting a Dataset</h3>
         <ol>
             <li>You will collect a dataset from <a href="https://www.kaggle.com/">Kaggle</a>. Register,
@@ -57,13 +58,7 @@
         <h3>Building a Simple Convolutional Neural Network</h3>
         <ol>
             <li>Create a simple convolutional network and train a model with the train set.
-                You can start from the architecture proposed by Chollet, Listing 5.5, and a small number of epochs.
-                Use the ImageDataGenerator class to scale your images as in the book:
-                <pre>
-train_datagen = ImageDataGenerator(rescale=1. / 255)
-val_datagen = ImageDataGenerator(rescale=1. / 255)
-test_datagen = ImageDataGenerator(rescale=1. / 255)
-                </pre>
+                You can start from the architecture proposedby Chollet, Listing 5.5, and a small number of epochs.
                 You will need to modify some parameters so that your network handles multiple classes.
                 You will also adjust the number of steps so that your generator in
                 the fitting procedure sees all the samples.
@@ -119,6 +114,6 @@ test_datagen = ImageDataGenerator(rescale=1. / 255)
                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
                 you need to reach an accuracy of 80 to pass.
             </li>
-        </ol>
+        </ol>-->
     </body>
 </html>
