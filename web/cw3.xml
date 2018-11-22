@@ -8,8 +8,8 @@
     </head>
     <body>
         <!--<h1>Assignment #3: Convolutional Networks</h1>-->
-        <h2>Provisional</h2>
-        <p>The content of this page is provisional and will possibly change by the day of the lab.</p>
+        <!--<h2>Provisional</h2>
+        <p>The content of this page is provisional and will possibly change by the day of the lab.</p>-->
         <h2>Objectives</h2>
         <p>The objectives of this assignment are to:</p>
         <ul>
@@ -25,7 +25,11 @@
             <li>Group 2: Friday, November 23 from 13:15 to 15:00 in the Beta room</li>
             <li>Group 3: Friday, November 23 from 13:15 to 15:00 in the Alpha room</li>
         </ul>
-        <p>Always check the calender for last minute changes: <a href="https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#">https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#</a></p>
+        <p>Always check the calender for last minute changes:
+            <a href="https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#">
+                https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#
+            </a>
+        </p>
         <p>You can work alone or collaborate with another student:</p>
         <ul>
             <li>Each group will have to write Python programs to recognize the sort of flower in an image.
@@ -60,9 +64,9 @@
                 You can start from the architecture proposed by Chollet, Listing 5.5, and a small number of epochs.
                 Use the ImageDataGenerator class to scale your images as in the book:
                 <pre>
-train_datagen = ImageDataGenerator(rescale=1. / 255)
-val_datagen = ImageDataGenerator(rescale=1. / 255)
-test_datagen = ImageDataGenerator(rescale=1. / 255)
+                    train_datagen = ImageDataGenerator(rescale=1. / 255)
+                    val_datagen = ImageDataGenerator(rescale=1. / 255)
+                    test_datagen = ImageDataGenerator(rescale=1. / 255)
                 </pre>
                 You will need to modify some parameters so that your network handles multiple classes.
                 You will also adjust the number of steps so that your generator in
@@ -117,8 +121,11 @@ test_datagen = ImageDataGenerator(rescale=1. / 255)
             </li>
             <li>
                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
-                you need to reach an accuracy of 80 to pass.
             </li>
         </ol>
+        <h3>Passing the Assignment</h3>
+        <p>
+            To pass the assignment, you need to reach an accuracy of 75 (even 80 ideally) with your best network.
+        </p>
     </body>
 </html>

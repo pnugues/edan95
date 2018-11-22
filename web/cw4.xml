@@ -14,9 +14,9 @@
         <p>The objectives of this assignment are to:</p>
         <ul>
             <li>Write a program to recognize named entities in text</li>
-            <li>Learn how to manage an text data set</li>
+            <li>Learn how to manage a text data set</li>
             <li>Apply recurrent neural networks to text</li>
-            <li>Know what embeddings are</li>
+            <li>Know what word embeddings are</li>
         </ul>
         <h2>Organization and location</h2>
         <p>The third lab session will take place on</p>
@@ -25,95 +25,152 @@
             <li>Group 2: Thursday, November 29 from 13:15 to 15:00 in the Beta room</li>
             <li>Group 3: Friday, November 30 from 13:15 to 15:00 in the Alpha room</li>
         </ul>
-        <p>Always check the calender for last minute changes: <a href="https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#">https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#</a></p>
+        <p>Always check the calender for last minute changes:
+            <a href="https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#">
+                https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#
+            </a>
+        </p>
         <p>You can work alone or collaborate with another student:</p>
         <ul>
             <li>Each group will have to write Python programs to recognize named entities in text.
             </li>
             <li>You will have to experiment different architectures, namely RNN and LSTM,
-                and compare the results you obtained</li>
+                and compare the results you obtained.
+            </li>
         </ul>
-       <!-- <h2>Programming</h2>
+        <h2>Programming</h2>
         <h3>Collecting a Dataset</h3>
         <ol>
-            <li>You will collect a dataset from <a href="https://www.kaggle.com/">Kaggle</a>. Register,
-                it is free, and you will have access to lots of datasets.
+            <li>You will use a dataset from the CoNLL conferences that benchmark natural language processing systems and
+                tasks.
+                There were two conferences on named entity recognition:
+                <a href="https://www.clips.uantwerpen.be/conll2003/ner/">CoNLL 2002</a>
+                (Spanish and Dutch)
+                and <a href="https://www.clips.uantwerpen.be/conll2002/ner/">CoNLL 2003</a> (English and German). In
+                this
+                assignment, you will work on the English dataset. Read the description of the task.
             </li>
             <li>
-                Download the <a href="https://www.kaggle.com/alxmamaev/flowers-recognition">Flower corpus</a>.
-                You can find a local copy in the <tt>/usr/local/cs/EDAN95/datasets</tt> folder.
-            </li>
-            <li>Alternatively, you can use another dataset, provided that it has more than two categories. Tell your
-                teacher in advance in this case to check if it is acceptable. You can use the Google dataset search:
+                The datasets are protected by a license and you need to obtain it to reconstruct the data.
+                Alternatively, you can use a local copy or try to find one on github (type conll2003 in the search box)
+                or use the Google dataset search:
                 <a href="https://toolbox.google.com/datasetsearch">https://toolbox.google.com/datasetsearch</a>.
+                You can find a local copy in the <tt>/usr/local/cs/EDAN95/datasets/NER-data</tt> folder.
             </li>
-            <li>Split randomly your dataset into training, validation, and test sets: Use a 60/20/20 ratio.
-                You will read all the file names and create a list of pairs, (file_name, category).
-                You will then shuffle your list and save your partition of the data. To speed up the lab, you can also
-                start with the partition available in the <tt>/usr/local/cs/EDAN95/datasets</tt> folder.
-                You can also use the code available from
-                <a href="https://github.com/pnugues/edan95">https://github.com/pnugues/edan95</a>.
+            <li>The dataset comes in the form of three files: a training set, a development set, and a test set.
+                <!--, named:
+                <tt>eng.train</tt>, <tt>eng.testa</tt> (validation), and <tt>eng.testb</tt> (test).-->
+                You will use the test set to evaluate your models. For this, you will
+                apply the <tt>conlleval</tt> script that will compute the harmonic mean of the precision and recall: F1.
+                You have a local copy of this script in <tt>/usr/local/cs/EDAN95/datasets/ner/bin</tt>. <tt>conlleval
+                </tt> is
+                written in Perl. Be sure to have it on your machine to run it.
             </li>
         </ol>
-        <h3>Building a Simple Convolutional Neural Network</h3>
+        <h3>Reading the Corpus and Building Indices</h3>
+        <p>You will read the corpus with programs available from
+            <a href="https://github.com/pnugues/edan95">https://github.com/pnugues/edan95</a>. These
+            programs will enable you to load the files in the form of a list of dictionaries.
+        </p>
         <ol>
-            <li>Create a simple convolutional network and train a model with the train set.
-                You can start from the architecture proposedby Chollet, Listing 5.5, and a small number of epochs.
-                You will need to modify some parameters so that your network handles multiple classes.
-                You will also adjust the number of steps so that your generator in
-                the fitting procedure sees all the samples.
-                You will report the training and validation losses and accuracies and comment on the possible overfit.
+            <li>Write a function that extracts the words and NER tags and returns <b>X</b> and <b>Y</b> list of symbols.
+            </li>
+            <li>Create indices and inverted indices for the words and the NER. The words will will be the set of
+                all the words observed in the training set and the words in GloVe.
+                You will use index 0 for the padding symbol and 1 for unknown words.
+            </li>
+        </ol>
+        <h3>Building the Embedding Matrix</h3>
+        <ol>
+            <li>Write a function that reads GloVe embeddings and store them in a dictionary,
+                where the keys will be the words and the values, the embeddings.
+            </li>
+            <li>Using a cosine similarity, compute the 5 closest words to the word <i>table</i>.
+            </li>
+            <li>Create a matrix whose size will be that of all the words. Initialize it with random values.</li>
+            <li>Fill the matrix with the GloVe embeddings.</li>
+        </ol>
+        <h3>Creating the <b>X</b> and <b>Y</b> Sequences
+        </h3>
+        <p>You will now create the input and output sequences with numerical indices</p>
+        <ol>
+            <li>Convert the <b>X</b> and <b>Y</b> list of symbols in a list of numbers using the indices
+                you created.
+            </li>
+            <li>Pad the sentences using the <tt>pad_sequences</tt> function.
+            </li>
+            <li>Do the same for the development set.</li>
+        </ol>
+        <h3>Building a Simple Recurrent Neural Network</h3>
+        <ol>
+            <li>Create a simple recurrent network and train a model with the train set.
+                As layers, you will use <tt>Embedding</tt>, <tt>SimpleRNN</tt>, and <tt>Dense</tt>.
+            </li>
+            <li>Compile and fit your network. You will report the training and validation losses and accuracies and
+                comment on the possible overfit.
             </li>
             <li>Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
-                As with fitting, you may need to adjust the number of steps so that your network tests all the
-                samples.
-            </li>
-            <li>Try to improve your model by modifying some parameters and evaluate your network again.</li>
-        </ol>
-        <h3>Using Image Augmentation</h3>
-        <p>
-            The flower dataset is relatively small. A way to expand such datasets is to generate artificial images by
-            applying small transformations to existing images. Keras provides a built-in class for this:
-            <tt>ImageDataGenerator</tt>. You will reuse it and apply it to the flower data set.
-        </p>
-        <ol>
-            <li>
-                Using the network from the previous exercise, apply some transformations to your images. You can start
-                from Chollet, Listing 5.11.
-            </li>
-            <li>Report the training and
-                validation losses and accuracies and comment on the possible overfit.
-            </li>
-            <li>
-                Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
+                You will use the <tt>evaluate</tt> method.
             </li>
         </ol>
-        <h3>Using a Pretrained Convolutional Base</h3>
-        <p>
-            Some research teams have trained convolutional neural networks on much larger datasets. We have seen
-            during the lecture that the networks can model conceptual patterns as they go through the layers. This was
-            identified by Le Cun in his first experiments
-            <a href="http://yann.lecun.com/exdb/lenet/">(http://yann.lecun.com/exdb/lenet/)</a>. In this last part, you
-            will train classifiers on top of a pretrained convolutional base.
-        </p>
+        <h3>Evaluating your System</h3>
+        <p>You will use the official script to evaluate the performance of your system</p>
         <ol>
-            <li>
-                Build a network that consists of the Inception V3 convolutional base and two dense layers. As in
-                Chollet, Listing 5.17, you will program an <tt>extract_features()</tt> function.
+            <li>Use the <tt>predict</tt> method to predict the tags of the whole test set
             </li>
-            <li>
-                Train your network and report the training and validation losses and accuracies.
+            <li>Write your results in a file, where the two last columns will be the hand-annotated tag
+                and the predicted tag. The fields must be separated by a space.
             </li>
-            <li>
-                Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
+            <li>Apply conlleval to your output. Report the F1 result.</li>
+            <li>Try to improve your model by modifying some parameters, adding layers, adding
+                <tt>Bidirectional</tt>, and evaluate your network again.
             </li>
-            <li>
-                Modify your program to include an image transformer. Train a new model.
-            </li>
-            <li>
-                Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
-                you need to reach an accuracy of 80 to pass.
-            </li>
-        </ol>-->
+        </ol>
+        <h3>Building a LSTM Network</h3>
+        <!-- <h3>Using Image Augmentation</h3>
+         <p>
+             The flower dataset is relatively small. A way to expand such datasets is to generate artificial images by
+             applying small transformations to existing images. Keras provides a built-in class for this:
+             <tt>ImageDataGenerator</tt>. You will reuse it and apply it to the flower data set.
+         </p>
+         <ol>
+             <li>
+                 Using the network from the previous exercise, apply some transformations to your images. You can start
+                 from Chollet, Listing 5.11.
+             </li>
+             <li>Report the training and
+                 validation losses and accuracies and comment on the possible overfit.
+             </li>
+             <li>
+                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
+             </li>
+         </ol>
+         <h3>Using a Pretrained Convolutional Base</h3>
+         <p>
+             Some research teams have trained convolutional neural networks on much larger datasets. We have seen
+             during the lecture that the networks can model conceptual patterns as they go through the layers. This was
+             identified by Le Cun in his first experiments
+             <a href="http://yann.lecun.com/exdb/lenet/">(http://yann.lecun.com/exdb/lenet/)</a>. In this last part, you
+             will train classifiers on top of a pretrained convolutional base.
+         </p>
+         <ol>
+             <li>
+                 Build a network that consists of the Inception V3 convolutional base and two dense layers. As in
+                 Chollet, Listing 5.17, you will program an <tt>extract_features()</tt> function.
+             </li>
+             <li>
+                 Train your network and report the training and validation losses and accuracies.
+             </li>
+             <li>
+                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
+             </li>
+             <li>
+                 Modify your program to include an image transformer. Train a new model.
+             </li>
+             <li>
+                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
+                 you need to reach an accuracy of 80 to pass.
+             </li>
+         </ol>-->
     </body>
 </html>
