@@ -7,10 +7,10 @@ Author: Pierre Nugues
 import os
 import random
 import shutil
-import numpy as np
 
 vilde = False
-np.random.seed(0)
+# To create the same dataset
+random.seed(0)
 
 if vilde:
     base = '/home/pierre/'
@@ -27,7 +27,6 @@ categories = os.listdir(original_dataset_dir)
 categories = [category for category in categories if not category.startswith('.')]
 print('Image types:', categories)
 data_folders = [os.path.join(original_dataset_dir, category) for category in categories]
-
 
 pairs = []
 for folder, category in zip(data_folders, categories):
@@ -63,4 +62,3 @@ for image, label in test_images:
     dst = os.path.join(test_dir, label, image)
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     shutil.copyfile(src, dst)
-
