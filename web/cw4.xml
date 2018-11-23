@@ -75,13 +75,22 @@
         <ol>
             <li>Write a function that extracts the words and NER tags and returns <b>X</b> and <b>Y</b> list of symbols.
             </li>
-            <li>Create indices and inverted indices for the words and the NER. The words will will be the set of
+            <li>Create indices and inverted indices for the words and the NER: i.e. you
+                will associate each word with a number.
+                The words will be the set of
                 all the words observed in the training set and the words in GloVe.
                 You will use index 0 for the padding symbol and 1 for unknown words.
             </li>
         </ol>
         <h3>Building the Embedding Matrix</h3>
         <ol>
+            <li>
+                Download the GloVe embeddings from
+                <a href="https://nlp.stanford.edu/projects/glove/">
+                    https://nlp.stanford.edu/projects/glove/
+                </a>
+                and keep the 100d vectors.
+            </li>
             <li>Write a function that reads GloVe embeddings and store them in a dictionary,
                 where the keys will be the words and the values, the embeddings.
             </li>
@@ -123,54 +132,26 @@
             </li>
             <li>Apply conlleval to your output. Report the F1 result.</li>
             <li>Try to improve your model by modifying some parameters, adding layers, adding
-                <tt>Bidirectional</tt>, and evaluate your network again.
+                <tt>Bidirectional</tt>
+                and <tt>Dropout</tt>.
+            </li>
+            <li>
+                Evaluate your network again
             </li>
         </ol>
         <h3>Building a LSTM Network</h3>
-        <!-- <h3>Using Image Augmentation</h3>
-         <p>
-             The flower dataset is relatively small. A way to expand such datasets is to generate artificial images by
-             applying small transformations to existing images. Keras provides a built-in class for this:
-             <tt>ImageDataGenerator</tt>. You will reuse it and apply it to the flower data set.
-         </p>
-         <ol>
-             <li>
-                 Using the network from the previous exercise, apply some transformations to your images. You can start
-                 from Chollet, Listing 5.11.
-             </li>
-             <li>Report the training and
-                 validation losses and accuracies and comment on the possible overfit.
-             </li>
-             <li>
-                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
-             </li>
-         </ol>
-         <h3>Using a Pretrained Convolutional Base</h3>
-         <p>
-             Some research teams have trained convolutional neural networks on much larger datasets. We have seen
-             during the lecture that the networks can model conceptual patterns as they go through the layers. This was
-             identified by Le Cun in his first experiments
-             <a href="http://yann.lecun.com/exdb/lenet/">(http://yann.lecun.com/exdb/lenet/)</a>. In this last part, you
-             will train classifiers on top of a pretrained convolutional base.
-         </p>
-         <ol>
-             <li>
-                 Build a network that consists of the Inception V3 convolutional base and two dense layers. As in
-                 Chollet, Listing 5.17, you will program an <tt>extract_features()</tt> function.
-             </li>
-             <li>
-                 Train your network and report the training and validation losses and accuracies.
-             </li>
-             <li>
-                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
-             </li>
-             <li>
-                 Modify your program to include an image transformer. Train a new model.
-             </li>
-             <li>
-                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
-                 you need to reach an accuracy of 80 to pass.
-             </li>
-         </ol>-->
+        <ol>
+            <li>Create a simple LSTM network and train a model with the train set.
+                As layers, you will use <tt>Embedding</tt>, <tt>LSTM</tt>, and <tt>Dense</tt>.
+            </li>
+            <li>Apply conlleval to your output. Report the F1 result.</li>
+            <li>Try to improve your model by modifying some parameters, adding layers, adding
+                <tt>Bidirectional</tt>, <tt>Dropout</tt>, possibly mixing <tt>SimpleRNN</tt>.
+            </li>
+            <li>
+                Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
+                you need to reach a F1 of 84 to pass.
+            </li>
+        </ol>
     </body>
 </html>
