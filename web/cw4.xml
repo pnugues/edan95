@@ -67,25 +67,10 @@
                 written in Perl. Be sure to have it on your machine to run it.
             </li>
         </ol>
-        <h3>Reading the Corpus and Building Indices</h3>
-        <p>You will read the corpus with programs available from
-            <a href="https://github.com/pnugues/edan95">https://github.com/pnugues/edan95</a>. These
-            programs will enable you to load the files in the form of a list of dictionaries.
-        </p>
-        <ol>
-            <li>Write a function that extracts the words and NER tags and returns <b>X</b> and <b>Y</b> list of symbols.
-            </li>
-            <li>Create indices and inverted indices for the words and the NER: i.e. you
-                will associate each word with a number.
-                The words will be the set of
-                all the words observed in the training set and the words in GloVe.
-                You will use index 0 for the padding symbol and 1 for unknown words.
-            </li>
-        </ol>
-        <h3>Building the Embedding Matrix</h3>
+        <h3>Collecting the Embeddings</h3>
         <ol>
             <li>
-                Download the GloVe embeddings from
+                Download the GloVe embeddings 6B from
                 <a href="https://nlp.stanford.edu/projects/glove/">
                     https://nlp.stanford.edu/projects/glove/
                 </a>
@@ -94,10 +79,37 @@
             <li>Write a function that reads GloVe embeddings and store them in a dictionary,
                 where the keys will be the words and the values, the embeddings.
             </li>
-            <li>Using a cosine similarity, compute the 5 closest words to the word <i>table</i>.
+            <li>Using a cosine similarity, compute the 5 closest words to the words <i>table</i>, <i>france</i>,
+                and <i>sweden</i>.
             </li>
-            <li>Create a matrix whose size will be that of all the words. Initialize it with random values.</li>
-            <li>Fill the matrix with the GloVe embeddings.</li>
+        </ol>
+        <h3>Reading the Corpus and Building Indices</h3>
+        <p>You will read the corpus with programs available from
+            <a href="https://github.com/pnugues/edan95">https://github.com/pnugues/edan95</a>. These
+            programs will enable you to load the files in the form of a list of dictionaries.
+        </p>
+        <ol>
+            <li>Write a function that for each sentence
+                returns the <b>X</b> and <b>Y</b> lists of symbols consisting of words and NER tags.
+            </li>
+            <li>
+                Create a vocabulary of all the words
+                observed in the training set and the words in GloVe.
+            </li>
+            <li>Create indices and inverted indices for the words and the NER: i.e. you
+                will associate each word with a number.
+                You will use index 0 for the padding symbol and 1 for unknown words.
+            </li>
+        </ol>
+        <h3>Building the Embedding Matrix</h3>
+        <ol>
+            <li>Create a matrix whose size will be that of all the words:
+                The unique words in the training set and the words in GloVe.
+                Initialize it with random values.
+            </li>
+            <li>Fill the matrix with the GloVe embeddings.
+                You will use the indices from the previous section.
+            </li>
         </ol>
         <h3>Creating the <b>X</b> and <b>Y</b> Sequences
         </h3>
@@ -118,7 +130,7 @@
             <li>Compile and fit your network. You will report the training and validation losses and accuracies and
                 comment on the possible overfit.
             </li>
-            <li>Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
+            <li>Apply your network to the test set and report the accuracy you obtained.
                 You will use the <tt>evaluate</tt> method.
             </li>
         </ol>
@@ -149,8 +161,8 @@
                 <tt>Bidirectional</tt>, <tt>Dropout</tt>, possibly mixing <tt>SimpleRNN</tt>.
             </li>
             <li>
-                Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
-                you need to reach a F1 of 84 to pass.
+                Apply your network to the test set and report the accuracy you obtained.
+                you need to reach a F1 of 82 to pass.
             </li>
         </ol>
     </body>
