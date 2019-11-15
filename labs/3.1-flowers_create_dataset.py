@@ -8,10 +8,13 @@ import os
 import random
 import shutil
 
+# The machine name
 vilde = False
+
 # To create the same dataset
 random.seed(0)
 
+# Here write the path to your dataset
 if vilde:
     base = '/home/pierre/'
 else:

@@ -17,24 +17,27 @@
             <li>Learn how to manage an image data set</li>
             <li>Apply convolutional networks to images</li>
             <li>Know what Python generators are</li>
+            <li>Write a short report on your experiments. This report is mandatory to pass the
+                assignment.
+            </li>
         </ul>
         <h2>Organization and location</h2>
         <p>The second lab session will take place on</p>
         <ul>
-            <li>Group 1: Thursday, November 22 from 15:15 to 17:00 in the Alpha room</li>
-            <li>Group 2: Friday, November 23 from 13:15 to 15:00 in the Beta room</li>
-            <li>Group 3: Friday, November 23 from 13:15 to 15:00 in the Alpha room</li>
+            <li>Groups 1 and 2: Thursday, November 21 from 13:15 to 15:00 in the Alpha and Beta rooms</li>
+            <li>Groups 3 and 4: Friday, November 22 from 13:15 to 15:00 in the Alpha and Beta rooms</li>
         </ul>
         <p>Always check the calender for last minute changes:
-            <a href="https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#">
-                https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#
+            <a href="https://cloud.timeedit.net/lu/web/lth1/ri1X50gQ0560YfQQ85Z6974Y0Zy7007345Y63Q564.html">
+                https://cloud.timeedit.net/lu/web/lth1/ri1X50gQ0560YfQQ85Z6974Y0Zy7007345Y63Q564.html
             </a>
         </p>
         <p>You can work alone or collaborate with another student:</p>
         <ul>
             <li>Each group will have to write Python programs to recognize the sort of flower in an image.
             </li>
-            <li>You will have to experiment different architectures and compare the results you obtained</li>
+            <li>You will have to experiment different architectures and compare the results you obtained.</li>
+            <li>Each student will have to write an individual report on these experiments.</li>
         </ul>
         <h2>Programming</h2>
         <h3>Collecting a Dataset</h3>
@@ -52,10 +55,18 @@
             </li>
             <li>Split randomly your dataset into training, validation, and test sets: Use a 60/20/20 ratio.
                 You will read all the file names and create a list of pairs, (file_name, category).
-                You will then shuffle your list and save your partition of the data. To speed up the lab, you can also
-                start with the partition available in the <tt>/usr/local/cs/EDAN95/datasets</tt> folder.
-                You can also use the code available from
-                <a href="https://github.com/pnugues/edan95">https://github.com/pnugues/edan95</a>.
+                You will then shuffle your list and save your partition of the data.
+                <br/>
+                To speed up the lab, you can also
+                <ol>
+                    <li>
+                        Start with the partition available in the <tt>/usr/local/cs/EDAN95/datasets</tt> folder; or
+                    </li>
+                    <li>
+                        You can also use the code available from
+                        <a href="https://github.com/pnugues/edan95">https://github.com/pnugues/edan95</a>.
+                    </li>
+                </ol>
             </li>
         </ol>
         <h3>Building a Simple Convolutional Neural Network</h3>
@@ -64,14 +75,23 @@
                 You can start from the architecture proposed by Chollet, Listing 5.5, and a small number of epochs.
                 Use the ImageDataGenerator class to scale your images as in the book:
                 <pre>
-                    train_datagen = ImageDataGenerator(rescale=1. / 255)
-                    val_datagen = ImageDataGenerator(rescale=1. / 255)
-                    test_datagen = ImageDataGenerator(rescale=1. / 255)
+    train_datagen = ImageDataGenerator(rescale=1. / 255)
+    val_datagen = ImageDataGenerator(rescale=1. / 255)
+    test_datagen = ImageDataGenerator(rescale=1. / 255)
                 </pre>
-                You will need to modify some parameters so that your network handles multiple classes.
-                You will also adjust the number of steps so that your generator in
-                the fitting procedure sees all the samples.
-                You will report the training and validation losses and accuracies and comment on the possible overfit.
+                <ul>
+                    <li>
+                        You will need to modify some parameters so that your network handles multiple classes.
+                    </li>
+                    <li>
+                        You will also adjust the number of steps so that your generator in
+                        the fitting procedure sees all the samples.
+                    </li>
+                    <li>
+                        You will report the training and validation losses and accuracies and comment on the possible
+                        overfit.
+                    </li>
+                </ul>
             </li>
             <li>Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
                 As with fitting, you may need to adjust the number of steps so that your network tests all the
@@ -127,5 +147,14 @@
         <p>
             To pass the assignment, you need to reach an accuracy of 75 (even 80 ideally) with your best network.
         </p>
+        <h2>Report</h2>
+        <p>You will write a short report of about two pages on your experiments, where you will the architectures you
+            designed and the results you obtained.
+        </p>
+        <p>To write the report, you will use Overleaf.com. The submission procedure will be specified later.</p>
+        <!--<p>    and you will send the link to your report
+        to the course address: edan95@cs.lth.se. Do not send the PDF, only the link. You will include
+        the assignment number in the message object.</p>-->
+        <p>You must submit this report no later than one week after you have complete the lab.</p>
     </body>
 </html>
