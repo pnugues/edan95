@@ -17,6 +17,7 @@
             <li>Learn how to manage an image data set</li>
             <li>Apply convolutional networks to images</li>
             <li>Know what Python generators are</li>
+            <li>Understand class activation</li>
             <li>Write a short report on your experiments. This report is mandatory to pass the
                 assignment.
             </li>
@@ -37,6 +38,8 @@
             <li>Each group will have to write Python programs to recognize the sort of flower in an image.
             </li>
             <li>You will have to experiment different architectures and compare the results you obtained.</li>
+            <li>Each student will have to run at home Chollet's notebook:
+                <tt>5.4-visualizing-what-convnets-learn.ipynb</tt></li>
             <li>Each student will have to write an individual report on these experiments.</li>
         </ul>
         <h2>Programming</h2>
@@ -148,9 +151,15 @@
             To pass the assignment, you need to reach an accuracy of 75 (even 80 ideally) with your best network.
         </p>
         <h2>Report</h2>
-        <p>You will write a short report of about two pages on your experiments, where you will the architectures you
-            designed and the results you obtained.
-        </p>
+        <p>You will write a short report of about two pages on your experiments:</p>
+        <ol>
+            <li>You will describe the architectures you designed and the results you obtained;</li>
+            <li>You will run Chollet's notebook 5.4 and read the article <i>Grad-CAM: Visual Explanations
+                from Deep Networks via Gradient-based Localization</i> by Selvaraju et al.
+                From this, you will reformulate and comment the paragraph
+                on <i>Visualizing heatmaps of class activation</i> in the notebook</li>
+        </ol>
+
         <p>To write the report, you will use Overleaf.com. The submission procedure will be specified later.</p>
         <!--<p>    and you will send the link to your report
         to the course address: edan95@cs.lth.se. Do not send the PDF, only the link. You will include
