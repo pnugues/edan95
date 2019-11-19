@@ -17,13 +17,15 @@
             <li>Learn how to manage a text data set</li>
             <li>Apply recurrent neural networks to text</li>
             <li>Know what word embeddings are</li>
+            <li>Write a short report on your experiments. This report is mandatory to pass the
+                assignment.
+            </li>
         </ul>
         <h2>Organization and location</h2>
         <p>The third lab session will take place on</p>
         <ul>
-            <li>Group 1: Thursday, November 29 from 13:15 to 15:00 in the Alpha room</li>
-            <li>Group 2: Thursday, November 29 from 13:15 to 15:00 in the Beta room</li>
-            <li>Group 3: Friday, November 30 from 13:15 to 15:00 in the Alpha room</li>
+            <li>Groups 1 and 2: Thursday, November 28 from 13:15 to 15:00 in the Alpha and Beta rooms</li>
+            <li>Groups 3 and 4: Friday, November 29 from 13:15 to 15:00 in the Alpha and Beta rooms</li>
         </ul>
         <p>Always check the calender for last minute changes:
             <a href="https://cloud.timeedit.net/lu/web/lth1/ri1Xp0gQ4560YZQQ85Z697wY0Zy70073Q5o53Q664v54rZo0xoQY.html#">
@@ -37,6 +39,7 @@
             <li>You will have to experiment different architectures, namely RNN and LSTM,
                 and compare the results you obtained.
             </li>
+            <li>Each student will have to write an individual report on these experiments.</li>
         </ul>
         <h2>Programming</h2>
         <h3>Collecting a Dataset</h3>
@@ -165,5 +168,22 @@
                 you need to reach a F1 of 82 to pass.
             </li>
         </ol>
+        <h2>Report</h2>
+        <p>You will write a short report of about two pages on your experiments:</p>
+        <ol>
+            <li>You will describe the architectures you designed and the results you obtained;</li>
+            <li>You will read the article, <a href="https://www.aclweb.org/anthology/C18-1139"><i>Contextual String
+            Embeddings for Sequence Labeling</i></a> by Akbik et al. (2018)
+            and you will outline the main differences between their system and yours. You will tell the performance
+            they reached on the corpus you used in this laboratory.</li>
+        </ol>
+
+        <p>To write the report, you will use Overleaf.com. The submission procedure is described here:
+            <a href="http://cs.lth.se/edan95/lab-programming-assignments/">http://cs.lth.se/edan95/lab-programming-assignments/</a>,
+        but send me the Overleaf link only.</p>
+        <!--<p>    and you will send the link to your report
+        to the course address: edan95@cs.lth.se. Do not send the PDF, only the link. You will include
+        the assignment number in the message object.</p>-->
+        <p>You must submit this report no later than one week after you have complete the lab.</p>
     </body>
 </html>

@@ -75,7 +75,7 @@
         <h3>Building a Simple Convolutional Neural Network</h3>
         <ol>
             <li>Create a simple convolutional network and train a model with the train set.
-                You can start from the architecture proposed by Chollet, Listing 5.5, and a small number of epochs.
+                You can start from the architecture proposed by Chollet, Listing 5.5 (in Chollet's notebook 5.2), and a small number of epochs.
                 Use the ImageDataGenerator class to scale your images as in the book:
                 <pre>
     train_datagen = ImageDataGenerator(rescale=1. / 255)
@@ -111,7 +111,7 @@
         <ol>
             <li>
                 Using the network from the previous exercise, apply some transformations to your images. You can start
-                from Chollet, Listing 5.11.
+                from Chollet, Listing 5.11 (in notebook 5.2 also).
             </li>
             <li>Report the training and
                 validation losses and accuracies and comment on the possible overfit.
@@ -131,7 +131,7 @@
         <ol>
             <li>
                 Build a network that consists of the Inception V3 convolutional base and two dense layers. As in
-                Chollet, Listing 5.17, you will program an <tt>extract_features()</tt> function.
+                Chollet, Listing 5.17 (in Chollet's notebook 5.3), you will program an <tt>extract_features()</tt> function.
             </li>
             <li>
                 Train your network and report the training and validation losses and accuracies.
@@ -160,7 +160,9 @@
                 on <i>Visualizing heatmaps of class activation</i> in the notebook</li>
         </ol>
 
-        <p>To write the report, you will use Overleaf.com. The submission procedure will be specified later.</p>
+        <p>To write the report, you will use Overleaf.com. The submission procedure is described here:
+            <a href="http://cs.lth.se/edan95/lab-programming-assignments/">http://cs.lth.se/edan95/lab-programming-assignments/</a>,
+        but send me the Overleaf link only.</p>
         <!--<p>    and you will send the link to your report
         to the course address: edan95@cs.lth.se. Do not send the PDF, only the link. You will include
         the assignment number in the message object.</p>-->
