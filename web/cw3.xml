@@ -140,7 +140,8 @@
                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
             </li>
             <li>
-                Modify your program to include an image transformer. Train a new model.
+                Modify your program to include an image transformer. Train a new model. As a hint, you can
+                make the whole convolutional base trainable and use the stochastic gradient descent as optimizer.
             </li>
             <li>
                 Apply your network to the test set and report the accuracy as well as the confusion matrix you obtained.
