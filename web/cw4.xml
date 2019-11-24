@@ -106,8 +106,8 @@
         </ol>
         <h3>Building the Embedding Matrix</h3>
         <ol>
-            <li>Create a matrix whose size will be that of all the words:
-                The unique words in the training set and the words in GloVe.
+            <li>Create a matrix of dimensions (M, N), where M will the size of the vocabulary:
+                The unique words in the training set and the words in GloVe, and N, the dimension of the embeddings.
                 Initialize it with random values.
             </li>
             <li>Fill the matrix with the GloVe embeddings.
