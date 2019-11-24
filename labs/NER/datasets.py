@@ -9,14 +9,18 @@ def load_conll2009_pos():
 
     column_names = ['id', 'form', 'lemma', 'plemma', 'pos', 'ppos']
 
-    train_sentences = open(train_file).read().strip()
+    train_sentences = open(train_file, encoding='utf8').read().strip()
     dev_sentences = open(dev_file).read().strip()
     test_sentences = open(test_file).read().strip()
     test2_sentences = open(test2_file).read().strip()
     return train_sentences, dev_sentences, test_sentences, column_names
 
 
-BASE_DIR = '/Users/pierre/Projets/Corpora/CoNLL2003/'
+vilde = False
+if vilde:
+    BASE_DIR = '/home/pierre/Cours/EDAN20/corpus/CoNLL2003/'
+else:
+    BASE_DIR = '/Users/pierre/Projets/Corpora/CoNLL2003/'
 
 
 def load_conll2003_en():
@@ -24,9 +28,9 @@ def load_conll2003_en():
     dev_file = BASE_DIR + 'NER-data/eng.valid'
     test_file = BASE_DIR + 'NER-data/eng.test'
     column_names = ['form', 'ppos', 'pchunk', 'ner']
-    train_sentences = open(train_file).read().strip()
-    dev_sentences = open(dev_file).read().strip()
-    test_sentences = open(test_file).read().strip()
+    train_sentences = open(train_file, encoding='utf8').read().strip()
+    dev_sentences = open(dev_file, encoding='utf8').read().strip()
+    test_sentences = open(test_file, encoding='utf8').read().strip()
     return train_sentences, dev_sentences, test_sentences, column_names
 
 

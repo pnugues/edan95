@@ -16,7 +16,7 @@ def save(file, corpus_dict, column_names):
     :param column_names:
     :return:
     """
-    with open(file, 'w') as f_out:
+    with open(file, 'w', encoding='utf8') as f_out:
         for sentence in corpus_dict:
             sentence_lst = []
             for row in sentence:
@@ -59,7 +59,7 @@ if __name__ == '__main__':
     train_file = 'test.txt'
 
     column_names = ['id', 'form', 'lemma', 'cpos', 'pos', 'feats']
-    train = open(train_file).read().strip()
+    train = open(train_file, encoding='utf8').read().strip()
     conll_dict = CoNLLDictorizer(column_names, col_sep='\t')
     train_dict = conll_dict.transform(train)
 
