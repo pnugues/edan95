@@ -93,7 +93,11 @@
         </p>
         <ol>
             <li>Write a function that for each sentence
-                returns the <b>X</b> and <b>Y</b> lists of symbols consisting of words and NER tags.
+                returns the <b>x</b> and <b>y</b> lists of symbols consisting of words and NER tags.
+            </li>
+            <li>
+                Apply this function to your datasets so that you create <b>X</b> and <b>Y</b> lists
+                of lists consisting of words and NER tags
             </li>
             <li>
                 Create a vocabulary of all the words
@@ -106,8 +110,8 @@
         </ol>
         <h3>Building the Embedding Matrix</h3>
         <ol>
-            <li>Create a matrix of dimensions (M, N), where M will the size of the vocabulary:
-                The unique words in the training set and the words in GloVe, and N, the dimension of the embeddings.
+            <li>Create a matrix of dimensions (<i>M</i>, <i>N</i>), where <i>M</i>, will the size of the vocabulary:
+                The unique words in the training set and the words in GloVe, and <i>N</i>, the dimension of the embeddings.
                 Initialize it with random values.
             </li>
             <li>Fill the matrix with the GloVe embeddings.
@@ -118,7 +122,7 @@
         </h3>
         <p>You will now create the input and output sequences with numerical indices</p>
         <ol>
-            <li>Convert the <b>X</b> and <b>Y</b> list of symbols in a list of numbers using the indices
+            <li>Convert the <b>X</b> and <b>Y</b> lists of symbols in lists of numbers using the indices
                 you created.
             </li>
             <li>Pad the sentences using the <tt>pad_sequences</tt> function.
