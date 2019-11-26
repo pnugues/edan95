@@ -47,9 +47,9 @@
             <li>You will use a dataset from the CoNLL conferences that benchmark natural language processing systems and
                 tasks.
                 There were two conferences on named entity recognition:
-                <a href="https://www.clips.uantwerpen.be/conll2003/ner/">CoNLL 2002</a>
+                <a href="https://www.clips.uantwerpen.be/conll2002/ner/">CoNLL 2002</a>
                 (Spanish and Dutch)
-                and <a href="https://www.clips.uantwerpen.be/conll2002/ner/">CoNLL 2003</a> (English and German). In
+                and <a href="https://www.clips.uantwerpen.be/conll2003/ner/">CoNLL 2003</a> (English and German). In
                 this
                 assignment, you will work on the English dataset. Read the description of the task.
             </li>
@@ -94,6 +94,12 @@
         <ol>
             <li>Write a function that for each sentence
                 returns the <b>x</b> and <b>y</b> lists of symbols consisting of words and NER tags.
+                For the second sentence of the training set, you should have:<br/>
+                <tt>x = ['eu', 'rejects', 'german', 'call', 'to', 'boycott', 'british', 'lamb', '.']</tt><br/>
+                <tt>y = ['I-ORG', 'O', 'I-MISC', 'O', 'O', 'O', 'I-MISC', 'O', 'O']</tt><br/>
+                Some datasets you may find on the web use a different NER tagset, where <tt>I-</tt> is
+                replaced with <tt>B-</tt>, like
+                <tt>B-ORG</tt> instead of <tt>I-ORG</tt>. This will not change the results.
             </li>
             <li>
                 Apply this function to your datasets so that you create <b>X</b> and <b>Y</b> lists
@@ -101,7 +107,7 @@
             </li>
             <li>
                 Create a vocabulary of all the words
-                observed in the training set and the words in GloVe.
+                observed in the training set and the words in GloVe. You should find 402,595 different words.
             </li>
             <li>Create indices and inverted indices for the words and the NER: i.e. you
                 will associate each word with a number.
@@ -111,10 +117,11 @@
         <h3>Building the Embedding Matrix</h3>
         <ol>
             <li>Create a matrix of dimensions (<i>M</i>, <i>N</i>), where <i>M</i>, will the size of the vocabulary:
-                The unique words in the training set and the words in GloVe, and <i>N</i>, the dimension of the embeddings.
-                Initialize it with random values.
+                The unique words in the training set and the words in GloVe, and <i>N</i>, the dimension of the embeddings.<br/>
+                The padding symbol and the unknown word symbol will be part of the vocabulary.<br/>
+                The shape of your matrix should be: (402597, 100). Initialize it with random values.
             </li>
-            <li>Fill the matrix with the GloVe embeddings.
+            <li>Fill the matrix with the GloVe embeddings when available.
                 You will use the indices from the previous section.
             </li>
         </ol>
@@ -125,13 +132,38 @@
             <li>Convert the <b>X</b> and <b>Y</b> lists of symbols in lists of numbers using the indices
                 you created.
             </li>
-            <li>Pad the sentences using the <tt>pad_sequences</tt> function.
+            <li>Pad the sentences using the <tt>pad_sequences</tt> function. As maximum length and
+                <tt>maxlen</tt> argument, you will use 150 or greater. What matters is that you have a length that is larger than
+                the maximum length observed in your training and development corpora.
+                After padding, the second sentence you look like (the indices are not necessarily the same).
+                <pre>
+x = [     0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0      0      0      0      0      0      0      0      0      0
+      0 142143 307143 161836  91321 363368  83766  85852 218260    936]
+y = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 9 6 9 9 9 6
+ 9 9]
+                </pre>
             </li>
             <li>Do the same for the development set.</li>
         </ol>
         <h3>Building a Simple Recurrent Neural Network</h3>
         <ol>
-            <li>Create a simple recurrent network and train a model with the train set.
+            <li>Create a simple recurrent network and train a model with the training set.
                 As layers, you will use <tt>Embedding</tt>, <tt>SimpleRNN</tt>, and <tt>Dense</tt>.
             </li>
             <li>Compile and fit your network. You will report the training and validation losses and accuracies and
