@@ -79,6 +79,9 @@
                 </a>
                 and keep the 100d vectors.
             </li>
+            <li>
+                You have a local copy of this script in <tt>/usr/local/cs/EDAN95/datasets/</tt>;
+            </li>
             <li>Write a function that reads GloVe embeddings and store them in a dictionary,
                 where the keys will be the words and the values, the embeddings.
             </li>
