@@ -182,9 +182,16 @@ y = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
             <li>Use the <tt>predict</tt> method to predict the tags of the whole test set
             </li>
             <li>Write your results in a file, where the two last columns will be the hand-annotated tag
-                and the predicted tag. The fields must be separated by a space.
+                and the predicted tag. The fields must be separated by a space and each line must end with a new line:
+                <tt>\n</tt>.
             </li>
-            <li>Apply conlleval to your output. Report the F1 result.</li>
+            <li>
+                If you save your results on a Windows machine, Python will use the default end-of-line sequence: <tt>\r\n</tt>.
+                You will then need either to convert your file or to modify the way you save your file.
+            </li>
+            <li>Apply <tt>conlleval</tt> to your output. Report the F1 result.<br/>
+                Be aware that <tt>conlleval</tt> was designed for Unix and will break
+            with Windows end-of-line conventions.</li>
             <li>Try to improve your model by modifying some parameters, adding layers, adding
                 <tt>Bidirectional</tt>
                 and <tt>Dropout</tt>.
@@ -208,13 +215,13 @@ y = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
             </li>
         </ol>
         <h2>Report</h2>
-        <p>You will write a short report of about two pages on your experiments:</p>
+        <p>You will write a report of about two pages on your experiments:</p>
         <ol>
             <li>You will describe the architectures you designed and the results you obtained;</li>
             <li>You will read the article, <a href="https://www.aclweb.org/anthology/C18-1139"><i>Contextual String
             Embeddings for Sequence Labeling</i></a> by Akbik et al. (2018)
             and you will outline the main differences between their system and yours. You will tell the performance
-            they reached on the corpus you used in this laboratory.</li>
+            they reached on the corpus you used in this laboratory. This part should be of about one page.</li>
         </ol>
 
         <p>To write the report, you will use Overleaf.com. The submission procedure is described here:
